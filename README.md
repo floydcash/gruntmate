@@ -1,9 +1,9 @@
 gruntmate
 =========
 
-GruntMate
+一个Grunt可视化的软件
 
-###GruntMate是一个Grunt可视化的软件
+###GruntMate用途：
 * 方便管理你基于Grunt的项目
 * 方便统一管理Grunt插件
 * 监听Gruntfile.js文件变化后，重启Grunt
