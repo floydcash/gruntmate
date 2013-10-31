@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GruntMate1.0</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+
+<div class="container">
+	
+	<header id="js_header">
+		<span class="logo"></span>
+		<a href="javascript:void(0)" id="js_header_close" title="关闭">x</a>
+		<a href="javascript:void(0)" id="js_header_min" title="最小化">－</a>
+	</header>
+	
+	<div class="left-bar">
+		<div class="bar-list">
+			<a href="javascript:void(0)" class="new-btn icon-plus" title="新建工程" onclick="ProjectManager.showAddForm()"></a>
+		</div>
+		<div class="project-list"><ul id="js_left_bar_list"></ul></div>
+	</div>
+	
+	<div class="right-ctn" id="js_right"></div>
+	
+	<div class="right-footer">
+		<a href="javascript:void(0)" class="plusin" onclick="NPM.show();">插件管理</a>
+		<a href="javascript:void(0)" class="tool-btn" title="Compass" onclick="Compass.show()">Compass</a>
+	</div>
+	
+</div>
+
+<div class="npm-container" id="js_npm_container">
+	
+	<div class="head"><span>插件管理</span><a href="javascript:void(0)" class="close" onclick="NPM.hide()" title="关闭">&times;</a></div>
+	
+	<h3>目前存在的插件：</h3>
+	
+	<div class="ctn">
+		<ul id="js_npm_list"></ul>
+	</div>
+	
+	<div class="add_npm">
+		<input type="text" placeholder="插件名字" id="js_npm_name" />
+		<input type="text" placeholder="版本号，默认最新" id="js_npm_ver" />
+		<input type="button" value="下载" onclick="NPM.downNpm()" />
+	</div>
+	
+</div>
+
+<div class="npm-log" id="js_npm_log_container">
+	
+	<div class="log-list" id="js_npm_log_list"></div>
+	
+	<button class="close" id="js_npm_log_close" onclick="NPM.hideNpmLog()">关闭</button>
+</div>
+
+<script type="text/javascript" src="js/htmlEncode.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/npm.js"></script>
+<script type="text/javascript" src="js/compass.js"></script>
+<script type="text/javascript" src="js/project.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
