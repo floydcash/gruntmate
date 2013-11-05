@@ -46,6 +46,40 @@ console.tolog = function(msg,p_num){
 	log_dom.scrollTop = log_dom.scrollHeight;
 }
 
+window.alert = function(msg){
+	
+	var box = $("js_msg_alert");
+	var bg = $("js_msg_bg");
+	
+	if(!box){
+		
+		box = document.createElement("div");
+		box.className = "msg-box";
+		box.id = "js_msg_alert";
+		
+		box.innerHTML = '<div class="head"><span>提示</span><a href="javascript:void(0)" class="close" title="关闭">&times;</a></div>\
+						<div class="ctn">test</div>';
+		
+		bg = document.createElement("div");
+		bg.className = "msg-bg";
+		bg.id = "js_msg_bg";
+		
+		document.body.appendChild(bg);
+		document.body.appendChild(box);
+		
+		box.querySelector(".close").onclick = function(){
+			
+			box.style.display = "none";
+			bg.style.display = "none";
+		}
+	}
+	
+	box.querySelector(".ctn").innerHTML = msg;
+	
+	box.style.display = "block";
+	bg.style.display = "block";
+}
+
 var $ProjectList = {};
 var $ProjectHash = {};
 var $CurrentProject = "";

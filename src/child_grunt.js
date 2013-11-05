@@ -1,8 +1,8 @@
 
-var worker = require("./lib/worker").worker;
+var worker = require("./lib/worker/worker").worker;
 
 if(!worker){
-	
+
 	var path = require("path");
 	
 	var project_path = process.cwd();
@@ -18,7 +18,7 @@ if(!worker){
 	startGrunt();
 }
 else{
-
+	
 	worker.onmessage = function (msg) {
  
 	  global.project_path = msg.path;
@@ -31,14 +31,15 @@ else{
 
 
 function startGrunt(){
+	
 	// Especially badass external libs.
 	var findup = require('findup-sync');
 	var resolve = require('resolve').sync;
 
 	// Internal libs.
-	var options = require('./lib/cli').options;
-	var completion = require('./lib/completion');
-	var info = require('./lib/info');
+	var options = require('./lib/grunt/cli').options;
+	var completion = require('./lib/grunt/completion');
+	var info = require('./lib/grunt/info');
 	var path = require('path');
 
 	var basedir = process.cwd();

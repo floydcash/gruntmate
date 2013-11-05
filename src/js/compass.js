@@ -15,7 +15,7 @@ var Compass = function(){
 				<ul>\
 					<li><label>工程名</label><input type="text" id="js_compass_name" placeholder="工程名" value="" /></li>\
 					<li><label>工程地址</label><input type="text" id="js_compass_path" placeholder="工程地址" value="" /></li>\
-					<li><label>Compass目录</label><input type="text" id="js_compass_src" placeholder="默认不填为sass" /></li>\
+					<li><label>Compass目录</label><input type="text" id="js_compass_src" placeholder="默认不填为scss" /></li>\
 					<li><label>生成css目录</label><input type="text" id="js_compass_css" placeholder="默认不填为css" /></li>\
 				</ul>\
 				<button class="add-btn" onclick="Compass.addProject()">添加</button>\
@@ -40,8 +40,8 @@ var Compass = function(){
 	
 		var name = $("js_compass_name").value;
 		var project_path = $("js_compass_path").value;
-		var sass_path = $("js_compass_src").value;
-		var css_path = $("js_compass_css").value;
+		var sass_path = $("js_compass_src").value || "scss";
+		var css_path = $("js_compass_css").value || "css";
 		
 		createGruntFile(project_path,sass_path,css_path);
 		

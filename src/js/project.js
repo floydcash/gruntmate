@@ -68,7 +68,7 @@ var ProjectManager = function(){
 		
 		//添加左边tab
 		var li = document.createElement("li");
-		li.innerHTML = '<a href="javascript:void(0)" id="js_left_bar_'+p_num+'" onclick="ProjectManager.changeProject('+p_num+')">'+name+'</a>';
+		li.innerHTML = '<a href="javascript:void(0)" id="js_left_bar_'+p_num+'" onclick="ProjectManager.changeProject('+p_num+')">'+name+'<br /><span title="'+path+'">'+path+'</span></a>';
 		$("js_left_bar_list").appendChild(li);
 		
 		//添加右边的内容
@@ -127,8 +127,9 @@ var ProjectManager = function(){
 
 	function delProject(p_num){
 
-		if($ProjectList[p_num].isStart)return alert("请先停止Grunt");
-
+		if($ProjectList[p_num].isStart)return alert("请先停止Grunt任务");
+		
+		delete $ProjectHash[$ProjectList[p_num].name];
 		delete $ProjectList[p_num];
 
 		$("js_left_bar_list").removeChild($("js_left_bar_"+p_num).parentNode);

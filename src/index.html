@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>GruntMate1.0</title>
+<link rel="stylesheet" type="text/css" href="css/font.css" />
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <body>
@@ -25,8 +26,10 @@
 	<div class="right-ctn" id="js_right"></div>
 	
 	<div class="right-footer">
-		<a href="javascript:void(0)" class="plusin" onclick="NPM.show();">插件管理</a>
+		<a href="javascript:void(0)" class="plusin" title="NPM插件管理(全局)" onclick="NPM.show();">插件管理</a>
 		<a href="javascript:void(0)" class="tool-btn" title="Compass" onclick="Compass.show()">Compass</a>
+		<a href="javascript:void(0)" class="tool-btn" title="JS代码压缩/美化" onclick="Compress.show()">压缩/美化</a>
+		<a href="javascript:void(0)" class="tool-btn" title="图片转Base64字符串" onclick="DataUri.show()">Base64</a>
 	</div>
 	
 </div>
@@ -56,10 +59,52 @@
 	<button class="close" id="js_npm_log_close" onclick="NPM.hideNpmLog()">关闭</button>
 </div>
 
+<div class="compress" id="js_compress">
+	
+	<div class="head"><span>压缩/美化</span><a href="javascript:void(0)" class="close" onclick="Compress.hide()" title="关闭">&times;</a></div>
+	
+	<div class="left-source">
+		<h4>源代码：</h4>
+		<textarea id="js_left_source"></textarea>
+	</div>
+	
+	<div class="aron icon-arrow-right"></div>
+	
+	<div class="right-compress">
+		<h4>转换后代码：</h4>
+		<textarea id="js_right_compress"></textarea>
+	</div>
+	
+	<div class="btn-list">
+		
+		<select id="js_compress_select">
+			<option value="0">压缩</option>
+			<option value="1">美化</option>
+		</select>
+		
+		<button class="confirm" onclick="Compress.change()">转换</button>
+	</div>
+</div>
+
+<div class="datauri" id="js_datauri">
+	
+	<div class="head"><span>图片转Base64</span><a href="javascript:void(0)" class="close" onclick="DataUri.hide()" title="关闭">&times;</a></div>
+	
+	<div class="files">
+		<label>选择图片路径：</label><input type="file" id="js_datauri_file" accept="image/*" /><br /><br />
+		
+		<label>Base64：</label><input type="text" id="js_datauri_val" value="" onclick="this.select();" /><br /><br />
+		
+		<button class="confirm" onclick="DataUri.change()">转换</button>
+	</div>
+</div>
+
 <script type="text/javascript" src="js/htmlEncode.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
 <script type="text/javascript" src="js/compass.js"></script>
+<script type="text/javascript" src="js/compress.js"></script>
+<script type="text/javascript" src="js/datauri.js"></script>
 <script type="text/javascript" src="js/project.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 

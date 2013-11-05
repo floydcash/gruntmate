@@ -1,7 +1,7 @@
 ﻿
 var Main = function(){
 
-	var $Worker = require("./lib/worker").Worker;
+	var $Worker = require("./lib/worker/worker").Worker;
 
 	var $current_work = null;
 	
@@ -54,9 +54,11 @@ var Main = function(){
 		clearLog(p_num);
 
 		console.tolog("Grunt:"+project.currentTasks+" is Start",p_num);
-
+		
 		$current_work = new $Worker("./child_grunt.js");
-
+		
+		console.log($current_work);
+	
 		$current_work.postMessage({
 		  path : project.path,
 		  exec_path : Common.execPath,

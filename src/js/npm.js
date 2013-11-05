@@ -23,10 +23,12 @@ var NPM = function(){
 		var npm_name = $("js_npm_name").value;
 		var npm_ver = $("js_npm_ver").value;
 		
+		if(!npm_name)return alert("请输入插件名");
+		
 		useNpmProcess(npm_name,npm_ver);
 	}
 	
-	function useNpmProcess(npm_name){
+	function useNpmProcess(npm_name,npm_ver){
 		
 		$("js_npm_log_list").innerHTML = "";
 		addNpmLog('开始下载...');
@@ -38,7 +40,7 @@ var NPM = function(){
 		
 		var exec = require("child_process").exec;   
 
-		var child = exec("npm install "+npm_name);
+		var child = exec("npm install "+npm_name+(npm_ver?"@"+npm_ver:""));
 		
 		$nowPid = child.pid;
 
