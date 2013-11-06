@@ -9,6 +9,7 @@ gruntmate
 * 监听Gruntfile.js文件变化后，重启Grunt
 * uglifyjs压缩/美化支持
 * 图片转base64支持
+* 雪碧图合并功能
 * compass项目管理生成
 
 ###执行依赖：
