@@ -30,6 +30,7 @@
 		<a href="javascript:void(0)" class="tool-btn" title="Compass" onclick="Compass.show()">Compass</a>
 		<a href="javascript:void(0)" class="tool-btn" title="JS代码压缩/美化" onclick="Compress.show()">压缩/美化</a>
 		<a href="javascript:void(0)" class="tool-btn" title="图片转Base64字符串" onclick="DataUri.show()">Base64</a>
+		<a href="javascript:void(0)" class="tool-btn" title="雪碧图生成" onclick="Sprite.show()">雪碧图</a>
 	</div>
 	
 </div>
@@ -99,12 +100,30 @@
 	</div>
 </div>
 
+<div class="sprite" id="js_sprite">
+	
+	<div class="head"><span>雪碧图生成</span><a href="javascript:void(0)" class="close" onclick="Sprite.hide()" title="关闭">&times;</a></div>
+	
+	<div class="files">
+		<label>源css路径：</label><input type="text" id="js_sprite_cssfrom" placeholder="路径结尾必须有\" /><br /><br />
+		<label>源图片格式：</label><input type="text" placeholder="默认png，支持png与jpg" id="js_sprite_typefrom" /><br /><br />
+		<label>合并指定前缀图片：</label><input type="text" placeholder="默认全部合并，指定前缀：sprite_，多个用空格隔开" id="js_sprite_mergefrom" /><br /><br />
+		<label>生成css路径：</label><input type="text" id="js_sprite_cssto"  placeholder="路径结尾必须有\" /><br /><br />
+		<label>生成雪碧图路径：</label><input type="text" id="js_sprite_imgto"  placeholder="路径结尾必须有\" /><br /><br />
+		<label>生成雪碧图间距：</label><input type="text" placeholder="默认0" id="js_sprite_paddingto"  /><br /><br />
+		<label>生成雪碧图格式：</label><input type="text" placeholder="默认png" id="js_sprite_typeto"  /><br /><br />
+		
+		<button class="confirm" onclick="Sprite.change()">转换</button>
+	</div>
+</div>
+
 <script type="text/javascript" src="js/htmlEncode.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
 <script type="text/javascript" src="js/compass.js"></script>
 <script type="text/javascript" src="js/compress.js"></script>
 <script type="text/javascript" src="js/datauri.js"></script>
+<script type="text/javascript" src="js/sprite.js"></script>
 <script type="text/javascript" src="js/project.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 

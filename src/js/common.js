@@ -15,7 +15,7 @@ process.on("exit",function(code){
 
 console.tolog = function(msg,p_num){
 
-	console.log(msg);
+	//console.log(msg);
 	
 	msg = msg.toString();
 	

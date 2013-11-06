@@ -401,6 +401,61 @@ a{text-decoration:none;}
 
 /***/
 
+.sprite{
+	display:none;
+	position:absolute;
+	left:125px;
+	top:100px;
+	width:500px;
+	height:365px;
+	background:white;
+	border:1px solid #555;
+	border-radius:3px;
+	box-shadow:0 0 2px #333;
+	z-index:10;
+}
+.sprite .head{
+	height:35px;
+	background-color:#fed8d5;
+}
+.sprite .head .close{
+	display:inline-block;
+	color:#db2e45;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	float:right;
+}
+.sprite .head span{
+	display:inline-block;
+	float:left;
+	color:#db2e45;
+	font-size:14px;
+	margin:8px 0 0 10px;
+}
+.sprite .files{
+	float:left;
+	margin:10px 0 0 10px;
+}
+.sprite .files input[type='text']{
+	width:350px;
+}
+.sprite .confirm{
+	width:80px;
+	height:30px;
+	font-size: 14px;
+	background-color: #4bc078;
+	border:1px solid #249a51;
+	color:white;
+}
+.sprite .confirm:active{
+	opacity:0.8;
+}
+
+/***/
+
 .container{
 	width:748px;
 	height:548px;
