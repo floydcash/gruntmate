@@ -36,9 +36,9 @@ var NPM = function(){
 		var old_execPath = process.cwd();
 		var path = require("path");
 		
-		process.chdir(path.dirname(Common.execPath));
+		process.chdir(Common.execPath);
 		
-		var exec = require("child_process").exec;   
+		var exec = require("child_process").exec; 
 
 		var child = exec("npm install "+npm_name+(npm_ver?"@"+npm_ver:""));
 		
@@ -109,7 +109,7 @@ var NPM = function(){
 		var path = require("path");
 		var fs = require("fs");
 		
-		var npm_path = path.join(path.dirname(Common.execPath),"node_modules");
+		var npm_path = path.join(Common.execPath,"node_modules");
 		
 		var npm_list = [];
 		

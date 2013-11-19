@@ -13,6 +13,7 @@ var ProjectManager = function(){
 			  	addProject(
 			  		content[name].name,
 			  		content[name].path,
+					content[name].plus || 1,
 			  		content[name].tasks.join(" "),
 			  		content[name].currentTasks,name);
 
@@ -29,16 +30,17 @@ var ProjectManager = function(){
 		if($addFormDom)return false;
 		
 		$addFormDom = document.createElement("div");
-		$addFormDom.className = "addForm";
+		$addFormDom.className = "commonBox addForm";
 		
 		$addFormDom.innerHTML = '<div class="head"><span>新建工程</span><a href="javascript:void(0)" class="close" onclick="ProjectManager.hideAddForm()" title="关闭">&times;</a></div>\
 			<div class="ctn">\
 				<ul>\
 					<li><label>工程名</label><input type="text" id="js_addform_name" placeholder="工程名" value="" /></li>\
 					<li><label>工程地址</label><input type="text" id="js_addform_path" placeholder="工程地址" value="" /></li>\
+					<li><label>插件使用</label><select id="js_addform_plus"><option value="1">全局插件</option><option value="2">局部插件</option></select></li>\
 					<li><label>任务列表</label><input type="text" id="js_addform_tasks" placeholder="默认为default,可以不填,多个用空格分开" /></li>\
 				</ul>\
-				<button class="add-btn" onclick="ProjectManager.addProject()">添加</button>\
+				<button class="confirm-btn" onclick="ProjectManager.addProject()">添加</button>\
 			</div>';
 		
 		document.body.appendChild($addFormDom);
@@ -56,10 +58,11 @@ var ProjectManager = function(){
 		if($addFormDom)$addFormDom.style.display = "none";
 	}
 	
-	function addProject(name,path,tasks,currentTasks,p_num){
+	function addProject(name,path,plus,tasks,currentTasks,p_num){
 		
 		name = name  || $("js_addform_name").value;
 		path = path || $("js_addform_path").value;
+		plus = plus || $("js_addform_plus").value || 1;
 		tasks = tasks || $("js_addform_tasks").value || "default";
 
 		if($ProjectHash[name])return alert("已经存在同名项目");
@@ -84,6 +87,7 @@ var ProjectManager = function(){
 		div.id = "js_right_ctn_"+p_num;
 		div.style.display = "none";
 		div.innerHTML = '<div class="tool-list">\
+					'+(plus==1?"<span>全</span>":"<span>局</span>")+'\
 					<select onchange="ProjectManager.changeTasks(this,'+p_num+')">'+tasks_html+'</select>\
 					<button onclick="Main.start(this,'+p_num+')">启动</button>\
 					<button onclick="Main.clearLog('+p_num+')">清空</button>\
@@ -97,6 +101,7 @@ var ProjectManager = function(){
 		$ProjectList[p_num] = {
 			path : path,
 			name : name,
+			plus : plus,
 			tasks : tasks_list,
 			currentTasks : currentTasks,
 			isStart : false
@@ -129,13 +134,17 @@ var ProjectManager = function(){
 
 		if($ProjectList[p_num].isStart)return alert("请先停止Grunt任务");
 		
-		delete $ProjectHash[$ProjectList[p_num].name];
-		delete $ProjectList[p_num];
+		return confirm("你确定要删除此项目吗？",function(){
+			
+			delete $ProjectHash[$ProjectList[p_num].name];
+			delete $ProjectList[p_num];
 
-		$("js_left_bar_list").removeChild($("js_left_bar_"+p_num).parentNode);
-		$("js_right").removeChild($("js_right_ctn_"+p_num));
+			$("js_left_bar_list").removeChild($("js_left_bar_"+p_num).parentNode);
+			$("js_right").removeChild($("js_right_ctn_"+p_num));
 
-		if($CurrentProject == p_num)$CurrentProject = "";
+			if($CurrentProject == p_num)$CurrentProject = "";
+			
+		});
 	}
 
 	function changeTasks(selectDom,p_num){

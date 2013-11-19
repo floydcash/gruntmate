@@ -45,23 +45,23 @@ a{text-decoration:none;}
 
 /***/
 
-.addForm{
+.commonBox{
 	position:absolute;
 	z-index:10;
+	background:white;
+	border:1px solid #ff887e;
+	box-shadow:0 0 3px #555;
 	width:400px;
 	height:auto;
 	left:175px;
 	top:100px;
-	background:white;
-	border:1px solid #ff887e;
-	box-shadow:0 0 3px #555;
 	display:none;
 }
-.addForm .head{
+.commonBox .head{
 	height:35px;
 	background-color:#fed8d5;
 }
-.addForm .head .close{
+.commonBox .head .close{
 	display:inline-block;
 	color:#db2e45;
 	width:30px;
@@ -71,31 +71,27 @@ a{text-decoration:none;}
 	font-size:16px;
 	float:right;
 }
-.addForm .head span{
+.commonBox .head span{
 	display:inline-block;
 	float:left;
 	color:#db2e45;
 	font-size:14px;
 	margin:8px 0 0 10px;
 }
-
-.addForm .ctn li{
-	margin:10px 0 0 5px;
-}
-.addForm .ctn li label{
-	display:inline-block;
-	width:80px;
-	text-align:right;
-	margin-right:5px;
-}
-.addForm .ctn li input[type="text"]{
+.commonBox input[type="text"]{
 	width:250px;
 	height:30px;
 	border:1px solid #dddddd;
 	box-shadow:inset 0 1px #ddd;
 	text-indent:5px;
 }
-.addForm .add-btn{
+.commonBox label{
+	display:inline-block;
+	width:80px;
+	text-align:right;
+	margin-right:5px;
+}
+.commonBox .confirm-btn{
 	width:80px;
 	height:30px;
 	margin:20px 0 10px 90px;
@@ -104,40 +100,28 @@ a{text-decoration:none;}
 	border:1px solid #249a51;
 	color:white;
 }
+.commonBox select{
+	font-size: 12px;
+	width: auto;
+	height: 25px;
+	border-color:#aaa;
+	outline: none;
+	min-width:100px;
+}
+.commonBox .confirm-btn:hover{
+	opacity:0.85;
+}
+.commonBox .confirm-btn:active{
+	opacity:0.7;
+}
 
-.npm-container{
-	display:none;
-	position:absolute;
-	z-index:10;
-	width:400px;
-	height:auto;
-	left:175px;
-	top:100px;
-	background:white;
-	border:1px solid #ff887e;
-	box-shadow:0 0 3px #555;
+
+
+.addForm .ctn li{
+	margin:10px 0 0 5px;
 }
-.npm-container .head{
-	height:35px;
-	background-color:#fed8d5;
-}
-.npm-container .head .close{
-	display:inline-block;
-	color:#db2e45;
-	width:30px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	font-size:16px;
-	float:right;
-}
-.npm-container .head span{
-	display:inline-block;
-	float:left;
-	color:#db2e45;
-	font-size:14px;
-	margin:8px 0 0 10px;
-}
+
+
 .npm-container h3{
 	padding-left:10px;
 }
@@ -150,24 +134,13 @@ a{text-decoration:none;}
 	margin:15px 0 0 10px;
 }
 .npm-container .add_npm{
-	
 	margin:10px 0 10px 10px;
 }
 .npm-container .add_npm input[type='text']{
-
 	width:130px;
-	height:30px;
-	border:1px solid #dddddd;
-	box-shadow:inset 0 1px #ddd;
-	text-indent:5px;
 }
-.npm-container .add_npm input[type='button']{
-	width:80px;
-	height:30px;
-	font-size: 14px;
-	background-color: #4bc078;
-	border:1px solid #249a51;
-	color:white;
+.npm-container .confirm-btn{
+	margin:0;
 }
 
 .npm-log{
@@ -213,7 +186,8 @@ a{text-decoration:none;}
 	position:absolute;
 	z-index:1000;
 	width:300px;
-	height:80px;
+	height:auto;
+	min-height:80px;
 	left:225px;
 	top:150px;
 	background:white;
@@ -232,11 +206,11 @@ a{text-decoration:none;}
 }
 .msg-box .head{
 	height:35px;
-	background-color:#fed8d5;
+	background-color:red;
 }
 .msg-box .head .close{
 	display:inline-block;
-	color:#db2e45;
+	color:white;
 	width:30px;
 	height:30px;
 	line-height:30px;
@@ -247,7 +221,7 @@ a{text-decoration:none;}
 .msg-box .head span{
 	display:inline-block;
 	float:left;
-	color:#db2e45;
+	color:white;
 	font-size:14px;
 	margin:8px 0 0 10px;
 }
@@ -257,44 +231,36 @@ a{text-decoration:none;}
 	padding-left:10px;
 	padding-top:10px;
 }
+.msg-box .btn{
+	display:inline-block;
+	float:right;
+	padding-left:10px;
+	padding-top:10px;
+	margin-top:10px;
+}
+.msg-box .btn button{
+	width:55px;
+	height:25px;
+	margin:10px 10px 10px 10px;
+	font-size: 12px;
+	background-color: #4bc078;
+	border:1px solid #249a51;
+	color:white;
+	cursor:pointer;
+}
+.msg-box .btn button.cancel{
+	background-color:red;
+}
 
 /**--*/
 
 /***/
 
 .compress{
-	display:none;
-	position:absolute;
 	left:25px;
 	top:35px;
 	width:700px;
 	height:500px;
-	background:white;
-	border:1px solid #555;
-	border-radius:3px;
-	box-shadow:0 0 2px #333;
-	z-index:10;
-}
-.compress .head{
-	height:35px;
-	background-color:#fed8d5;
-}
-.compress .head .close{
-	display:inline-block;
-	color:#db2e45;
-	width:30px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	font-size:16px;
-	float:right;
-}
-.compress .head span{
-	display:inline-block;
-	float:left;
-	color:#db2e45;
-	font-size:14px;
-	margin:8px 0 0 10px;
 }
 .compress .left-source,.compress .right-compress{
 	float:left;
@@ -333,13 +299,8 @@ a{text-decoration:none;}
 	outline: none;
 	min-width:100px;
 }
-.compress .btn-list .confirm{
-	width:80px;
-	height:30px;
-	font-size: 14px;
-	background-color: #4bc078;
-	border:1px solid #249a51;
-	color:white;
+.compress .confirm-btn{
+	margin:0;
 }
 
 /**end--*/
@@ -347,93 +308,31 @@ a{text-decoration:none;}
 /**datauri*/
 
 .datauri{
-	display:none;
-	position:absolute;
 	left:125px;
 	top:200px;
 	width:500px;
 	height:170px;
-	background:white;
-	border:1px solid #555;
-	border-radius:3px;
-	box-shadow:0 0 2px #333;
-	z-index:10;
-}
-.datauri .head{
-	height:35px;
-	background-color:#fed8d5;
-}
-.datauri .head .close{
-	display:inline-block;
-	color:#db2e45;
-	width:30px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	font-size:16px;
-	float:right;
-}
-.datauri .head span{
-	display:inline-block;
-	float:left;
-	color:#db2e45;
-	font-size:14px;
-	margin:8px 0 0 10px;
 }
 .datauri .files{
 	float:left;
 	margin:10px 0 0 10px;
 }
 .datauri .files input[type='text']{
-	width:400px;
+	width:390px;
 }
-.datauri .confirm{
-	width:80px;
-	height:30px;
-	font-size: 14px;
-	background-color: #4bc078;
-	border:1px solid #249a51;
-	color:white;
+.datauri .files label{
+	width:85px;
 }
-.datauri .confirm:active{
-	opacity:0.8;
+.datauri .confirm-btn{
+	margin:0
 }
 
 /***/
-
 .sprite{
-	display:none;
-	position:absolute;
 	left:125px;
-	top:100px;
+	top:80px;
 	width:500px;
-	height:365px;
-	background:white;
-	border:1px solid #555;
-	border-radius:3px;
-	box-shadow:0 0 2px #333;
-	z-index:10;
-}
-.sprite .head{
-	height:35px;
-	background-color:#fed8d5;
-}
-.sprite .head .close{
-	display:inline-block;
-	color:#db2e45;
-	width:30px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	font-size:16px;
-	float:right;
-}
-.sprite .head span{
-	display:inline-block;
-	float:left;
-	color:#db2e45;
-	font-size:14px;
-	margin:8px 0 0 10px;
+	height:425px;
 }
 .sprite .files{
 	float:left;
@@ -442,18 +341,12 @@ a{text-decoration:none;}
 .sprite .files input[type='text']{
 	width:350px;
 }
-.sprite .confirm{
-	width:80px;
-	height:30px;
-	font-size: 14px;
-	background-color: #4bc078;
-	border:1px solid #249a51;
-	color:white;
+.sprite .files label{
+	width:110px;
 }
-.sprite .confirm:active{
-	opacity:0.8;
+.sprite .confirm-btn{
+	margin:0 0 0 20px;
 }
-
 /***/
 
 .container{
@@ -477,7 +370,7 @@ a{text-decoration:none;}
 	display:inline-block;
 	height:39px;
 	width:174px;
-	background:url(../img/logo.png) left center #f9f5ec no-repeat;
+	background:url(../img/logo.png) left center no-repeat;
 	margin-left:10px;
 }
 .container header a{
@@ -618,6 +511,10 @@ a{text-decoration:none;}
 	height:40px;
 	line-height:40px;
 }
+.container .right-ctn .tool-list span{
+	color:red;
+	font-size:12px;
+}
 .container .right-ctn .tool-list select{
 	font-size: 12px;
 	width: auto;
@@ -636,8 +533,11 @@ a{text-decoration:none;}
 	border:1px solid #249a51;
 	background-color:#4bc078;
 }
+.container .right-ctn .tool-list button:hover{
+	opacity: 0.85;
+}
 .container .right-ctn .tool-list button:active{
-	opacity: 0.9;
+	opacity: 0.7;
 	border:1px solid #aaa;
 }
 .container .right-ctn .tool-list button.warn{

@@ -57,11 +57,13 @@ var Main = function(){
 		
 		$current_work = new $Worker("./child_grunt.js");
 		
-		console.log($current_work);
-	
+		//console.log($current_work);
+		
+		var execpath = project.plus == 1?Common.execPath:project.path;
+		
 		$current_work.postMessage({
 		  path : project.path,
-		  exec_path : Common.execPath,
+		  exec_path : execpath,
 		  exec_param : project.currentTasks
 		});
 

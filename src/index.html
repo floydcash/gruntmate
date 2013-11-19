@@ -12,7 +12,7 @@
 	
 	<header id="js_header">
 		<span class="logo"></span>
-		<a href="javascript:void(0)" id="js_header_close" title="关闭">x</a>
+		<a href="javascript:void(0)" id="js_header_close" title="关闭">&times;</a>
 		<a href="javascript:void(0)" id="js_header_min" title="最小化">－</a>
 	</header>
 	
@@ -35,9 +35,9 @@
 	
 </div>
 
-<div class="npm-container" id="js_npm_container">
+<div class="commonBox npm-container" id="js_npm_container">
 	
-	<div class="head"><span>插件管理</span><a href="javascript:void(0)" class="close" onclick="NPM.hide()" title="关闭">&times;</a></div>
+	<div class="head"><span>全局插件管理</span><a href="javascript:void(0)" class="close" onclick="NPM.hide()" title="关闭">&times;</a></div>
 	
 	<h3>目前存在的插件：</h3>
 	
@@ -48,7 +48,7 @@
 	<div class="add_npm">
 		<input type="text" placeholder="插件名字" id="js_npm_name" />
 		<input type="text" placeholder="版本号，默认最新" id="js_npm_ver" />
-		<input type="button" value="下载" onclick="NPM.downNpm()" />
+		<input type="button" class="confirm-btn" value="下载" onclick="NPM.downNpm()" />
 	</div>
 	
 </div>
@@ -60,7 +60,7 @@
 	<button class="close" id="js_npm_log_close" onclick="NPM.hideNpmLog()">关闭</button>
 </div>
 
-<div class="compress" id="js_compress">
+<div class="commonBox compress" id="js_compress">
 	
 	<div class="head"><span>压缩/美化</span><a href="javascript:void(0)" class="close" onclick="Compress.hide()" title="关闭">&times;</a></div>
 	
@@ -83,11 +83,11 @@
 			<option value="1">美化</option>
 		</select>
 		
-		<button class="confirm" onclick="Compress.change()">转换</button>
+		<button class="confirm-btn" onclick="Compress.change()">转换</button>
 	</div>
 </div>
 
-<div class="datauri" id="js_datauri">
+<div class="commonBox datauri" id="js_datauri">
 	
 	<div class="head"><span>图片转Base64</span><a href="javascript:void(0)" class="close" onclick="DataUri.hide()" title="关闭">&times;</a></div>
 	
@@ -96,11 +96,11 @@
 		
 		<label>Base64：</label><input type="text" id="js_datauri_val" value="" onclick="this.select();" /><br /><br />
 		
-		<button class="confirm" onclick="DataUri.change()">转换</button>
+		<button class="confirm-btn" onclick="DataUri.change()">转换</button>
 	</div>
 </div>
 
-<div class="sprite" id="js_sprite">
+<div class="commonBox sprite" id="js_sprite">
 	
 	<div class="head"><span>雪碧图生成</span><a href="javascript:void(0)" class="close" onclick="Sprite.hide()" title="关闭">&times;</a></div>
 	
@@ -113,7 +113,7 @@
 		<label>生成雪碧图间距：</label><input type="text" placeholder="默认0" id="js_sprite_paddingto"  /><br /><br />
 		<label>生成雪碧图格式：</label><input type="text" placeholder="默认png" id="js_sprite_typeto"  /><br /><br />
 		
-		<button class="confirm" onclick="Sprite.change()">转换</button>
+		<button class="confirm-btn" onclick="Sprite.change()">转换</button>
 	</div>
 </div>
 

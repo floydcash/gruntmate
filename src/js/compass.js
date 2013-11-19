@@ -8,7 +8,7 @@ var Compass = function(){
 		if($compassDom)return false;
 		
 		$compassDom = document.createElement("div");
-		$compassDom.className = "addForm";
+		$compassDom.className = "commonBox addForm";
 		
 		$compassDom.innerHTML = '<div class="head"><span>新建Compass项目</span><a href="javascript:void(0)" class="close" onclick="Compass.hide()" title="关闭">&times;</a></div>\
 			<div class="ctn">\
@@ -18,7 +18,7 @@ var Compass = function(){
 					<li><label>Compass目录</label><input type="text" id="js_compass_src" placeholder="默认不填为scss" /></li>\
 					<li><label>生成css目录</label><input type="text" id="js_compass_css" placeholder="默认不填为css" /></li>\
 				</ul>\
-				<button class="add-btn" onclick="Compass.addProject()">添加</button>\
+				<button class="confirm-btn" onclick="Compass.addProject()">添加</button>\
 			</div>';
 		
 		document.body.appendChild($compassDom);
