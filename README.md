@@ -17,7 +17,7 @@ gruntmate
 2.  nodejs环境，需要到[nodejs](http://nodejs.org)下载
 
 ###编译版
-* windows版：[下载](https://drive.google.com/folderview?id=0ByEo1SqhRK7yWkQ4M0l5TWdKbXM&usp=sharing)需要nodejs环境执行
+* windows版：([下载](https://drive.google.com/folderview?id=0ByEo1SqhRK7yWkQ4M0l5TWdKbXM&usp=sharing))需要nodejs环境执行
 
 ##使用方法：
 * 需要在src同级目录下，新建node_modules目录，将grunt需要用到的插件放在这里
