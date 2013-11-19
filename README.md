@@ -3,6 +3,11 @@ gruntmate
 
 一个让你更好使用Grunt的软件
 
+###更新：
+* 11-19：
+  * 添加删除项目的二次确认
+  * 添加全局插件与局部插件使用，方便直接使用项目中的node_modules插件
+
 ###GruntMate用途：
 * 方便管理你基于Grunt的项目
 * 方便统一管理Grunt插件
@@ -20,5 +25,5 @@ gruntmate
 * windows版：([下载](https://drive.google.com/folderview?id=0ByEo1SqhRK7yWkQ4M0l5TWdKbXM&usp=sharing))需要nodejs环境执行
 
 ##使用方法：
-* 需要在src同级目录下，新建node_modules目录，将grunt需要用到的插件放在这里
+* 需要在src同级目录下，新建node_modules目录，将grunt需要用到的插件放在这里（使用局部插件不需要）
 * 程序左上角的+号是新建项目
