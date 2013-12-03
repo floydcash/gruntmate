@@ -24,13 +24,45 @@ else{
 	  global.project_path = msg.path;
 	  global.exec_path = msg.exec_path;
 	  global.exec_param = msg.exec_param || "default";
-	 
+	  
 	  startGrunt();
 	};
 }
 
 
 function startGrunt(){
+	
+	//¸²¸ÇÈ«¾ÖrequireÂß¼­
+	var old_require = require;
+	var new_require = function(str){
+			
+		var obj = null;	
+		
+		try{
+			obj = old_require(str);
+		}
+		catch(e){}
+		
+		if(!obj){
+
+			var path = require("path");
+			var fs = require("fs");
+			
+			var pkgfile = path.join(global.exec_path,"node_modules",str,"package.json");
+			
+			var pkg_content = fs.readFileSync(pkgfile);
+			var pkg_content = pkg_content.toString();
+			var pkg_json = JSON.parse(pkg_content);
+			
+			var main_file = path.join(global.exec_path,"node_modules",str,pkg_json.main);
+			
+			obj = old_require(main_file);
+		}
+		
+		return obj;
+	}
+	global.require = new_require;
+
 	
 	// Especially badass external libs.
 	var findup = require('findup-sync');
@@ -70,12 +102,3 @@ function startGrunt(){
 
 	grunt.cli();
 }
-
-//console.gruntlog = function(msg){
-	
-	//msg = msg.replace(/\[\d+m/gi,"");
-	
-	//worker.postMessage({
-		//msg: msg
-	//});
-//}

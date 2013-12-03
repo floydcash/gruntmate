@@ -92,6 +92,7 @@ var ProjectManager = function(){
 					<button onclick="Main.start(this,'+p_num+')">启动</button>\
 					<button onclick="Main.clearLog('+p_num+')">清空</button>\
 					<button onclick="ProjectManager.delProject('+p_num+')">删除</button>\
+					<button onclick="ProjectManager.fixProject('+p_num+')" title="修复全局插件下引用局部插件的问题">修复</button>\
 				</div>\
 				<div class="log"></div>';
 		$("js_right").appendChild(div);
@@ -143,8 +144,35 @@ var ProjectManager = function(){
 			$("js_right").removeChild($("js_right_ctn_"+p_num));
 
 			if($CurrentProject == p_num)$CurrentProject = "";
-			
 		});
+	}
+	
+	function fixProject(p_num){
+		
+		if($ProjectList[p_num].isStart)return alert("请先停止Grunt任务");
+		
+		//查找Gruntfile.js
+		var fs = require("fs");
+		var path = require("path");
+
+		var gruntpath = path.join($ProjectList[p_num].path,"Gruntfile.js");
+
+		fs.readFile(gruntpath, function (err, data) {
+		  if (err){
+		  		return alert("当前项目不存在Gruntfile.js文件");
+		  	}
+		  
+		  var content = data.toString();
+		  
+		  content = ';(function(){var old_require = require;require = function(str){if(typeof global != "undefined" && global.require){return global.require(str);}else return old_require(str);}}());\n\t'+ content;
+
+		  fs.writeFileSync(gruntpath, content);
+		  
+		  alert("修复完成");
+		});
+		
+		//添加补充代码
+		//;(function(){var old_require = require;require = function(str){if(typeof global != "undefined" && global.require){return global.require(str);}else return old_require(str);}}());
 	}
 
 	function changeTasks(selectDom,p_num){
@@ -159,6 +187,7 @@ var ProjectManager = function(){
 		addProject : addProject,
 		changeProject : changeProject,
 		delProject : delProject,
+		fixProject : fixProject,
 		changeTasks : changeTasks,
 		init : init
 	};
