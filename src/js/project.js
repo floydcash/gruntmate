@@ -87,7 +87,7 @@ var ProjectManager = function(){
 		div.id = "js_right_ctn_"+p_num;
 		div.style.display = "none";
 		div.innerHTML = '<div class="tool-list">\
-					'+(plus==1?"<span>全</span>":"<span>局</span>")+'\
+					'+(plus==1?"<span title='全局插件模式'>全</span>":"<span title='局部插件模式'>局</span>")+'\
 					<select onchange="ProjectManager.changeTasks(this,'+p_num+')">'+tasks_html+'</select>\
 					<button onclick="Main.start(this,'+p_num+')">启动</button>\
 					<button onclick="Main.clearLog('+p_num+')">清空</button>\

@@ -5,8 +5,6 @@ var Main = function(){
 
 	var $current_work = null;
 	
-	var $gruntId = 0;
-	
 	var $watchGrunt = null;
 
 	function start(btn,p_num){
@@ -31,7 +29,7 @@ var Main = function(){
 		//启动grunt
 		else {
 
-			if($gruntId)return alert("当前有Grunt任务，请先停止后再启动新的!");
+			if($current_work)return alert("当前有Grunt任务，请先停止后再启动新的!");
 
 			btn.innerHTML = "停止";
 			project.isStart = true;
@@ -66,40 +64,38 @@ var Main = function(){
 		  exec_path : execpath,
 		  exec_param : project.currentTasks
 		});
+		
+		  
+		$current_work.impl.addMessageEvent(function(data){
 
-		gruntLog(project);
+			var msg = data.toString().replace(/\[\d+m/gi,"");
+
+			if(!msg || msg.indexOf("HANDSHAKE")>-1)return false;
+
+			console.tolog(msg,p_num);
+
+			if(msg.lastIndexOf("Grunt is over") > -1){
+			
+				var start_btn = $("js_right_ctn_"+p_num).querySelector(".warn");
+				
+				if(start_btn)start(start_btn,p_num);
+			}
+
+			checkNews(p_num);
+		});
 	}
 
 	function stopGrunt(project){
 
 		$current_work.terminate();
+		$current_work.impl.clearMessageEvent();
 		process.kill($current_work.impl.child.pid);
 
-		clearInterval($gruntId);
-		$gruntId = 0;
-
 		var p_num = $ProjectHash[project.name];
+		
+		$current_work = null;
 
 		console.tolog("Grunt is Stop",p_num);
-	}
-
-	function gruntLog(project){
-
-		var p_num = $ProjectHash[project.name];
-
-		$gruntId = setInterval(function(){
-
-			var msg = $current_work.impl.buffer.replace(/\[\d+m/gi,"");
-			
-			if(!msg)return false;
-			
-			console.tolog(msg,p_num);
-			
-			$current_work.impl.buffer = "";
-
-			checkNews(p_num);
-
-		},500);
 	}
 
 	function checkNews(p_num){

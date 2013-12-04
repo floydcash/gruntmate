@@ -39,6 +39,9 @@ console.tolog = function(msg,p_num){
 		else if(msg[i].indexOf("Done")>-1 || msg[i].indexOf("Running")>-1){
 			span.className = "ok";
 		}
+		else if(msg[i].indexOf("Waiting")>-1){
+			span.className = "wait";
+		}
 		
 		log_dom.appendChild(span);
 	}

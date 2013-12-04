@@ -55,12 +55,21 @@ exports.Worker = Worker;
  
 function WorkerChild (eventDest, filename) {
   var self = this;
+  this.messageList = [];
   this.eventDest  = eventDest;
   this.filename = filename;
   this.child = child_process.spawn("node", [this.filename].concat(WORKER_PARAS));
   this.child.stdout.addListener("data", function (data) {
+  
     debug("From worker " + data);
+	
+	for(var i=0;i<self.messageList.length;i++){
+		
+		self.messageList[i](data);
+	}
+	
     self.handleData(data);
+	
   });
   
   this.child.stderr.addListener("data", function (data) {
@@ -72,6 +81,7 @@ function WorkerChild (eventDest, filename) {
   });
   
   this.child.addListener("exit", function (code) {
+  
     debug(self.child.pid + ": exit "+code);
   });
   
@@ -90,7 +100,12 @@ WorkerChild.prototype = {
       this.queue.push(message);
     }
   },
-  
+  addMessageEvent : function(cb){
+	this.messageList.push(cb);
+  },
+  clearMessageEvent : function(){
+	this.messageList = [];
+  },
   postQueue: function () {
     for(var i = 0, len = this.queue.length; i < len; ++i) {
       this.postMessage(this.queue[i]);

@@ -512,8 +512,13 @@ a{text-decoration:none;}
 	line-height:40px;
 }
 .container .right-ctn .tool-list span{
-	color:red;
-	font-size:12px;
+	color: red;
+	font-size: 12px;
+	display: inline-block;
+	border: 1px solid red;
+	height: 20px;
+	line-height: 18px;
+	padding: 1px 4px 0 4px;
 }
 .container .right-ctn .tool-list select{
 	font-size: 12px;
@@ -569,4 +574,7 @@ a{text-decoration:none;}
 }
 .container .right-ctn .log span.warn{
 	color:#ff887e;
+}
+.container .right-ctn .log span.wait{
+	color:blue;
 }
