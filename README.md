@@ -4,6 +4,7 @@
 ##GruntMate是什么？
 基于node-webkit编写开发的，采用html+css实现界面，js+nodejs实现逻辑，可视化管理Grunt的前端项目
 
+![gruntmate_shot](http://github.com/floydcash/gruntmate/raw/master/screen_shot/v1.03.jpg)
 
 ##GruntMate有哪些功能？
 * 方便的管理基于Grunt的项目
