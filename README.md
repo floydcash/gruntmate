@@ -6,13 +6,14 @@
 
 ###### [Automated English Translation](http://translate.google.com/translate?sl=auto&tl=en&js=n&prev=_t&hl=en&ie=UTF-8&u=https%3A%2F%2Fgithub.com%2Ffloydcash%2Fgruntmate) (May require Chrome)
 
-![gruntmate_shot](http://github.com/floydcash/gruntmate/raw/master/screen_shot/v1.03.png)
+![gruntmate_shot](http://github.com/floydcash/gruntmate/raw/master/screen_shot/v1.05.png)
 
 ##GruntMate有哪些功能？
 * 方便的管理基于Grunt的项目
 * 方便统一管理Grunt插件
 * 提供可视化启动、停止Grunt项目
 * 监听Gruntfile.js文件变化，自动重启Grunt任务
+* 方便搜索grunt运行日志
 * uglifyjs的压缩/美化
 * 图片转base64
 * 雪碧图合并功能
@@ -33,6 +34,12 @@
 
 
 ##更新说明：
+###1-11:
+1. 添加打开当前项目的资源管理器
+2. log添加行数显示，以及添加hover态
+3. 添加搜索当前项目的log功能，快捷键为ctrl+f，或者左上角的搜索icon
+4. 修改顶部banner的拖动为原生支持
+
 ###12-26:
 1. 在全局模式下，优先使用项目中存在的grunt插件
 
