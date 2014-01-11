@@ -25,10 +25,16 @@ console.tolog = function(msg,p_num){
 
 	var log_dom = $("js_right_ctn_"+p_num).lastChild;
 	
+	var startLine = log_dom.getElementsByTagName("span").length;
+	
 	for(var i=0;i<msg.length;i++){
 	
 		var span = document.createElement("span");
-		span.innerHTML = html.encode(msg[i]);
+		var h_msg = html.encode(msg[i]);
+		
+		if(!h_msg)continue;
+		
+		span.innerHTML = "["+(++startLine)+"]."+h_msg;
 		
 		if(msg[i].indexOf("Fatal error:")>-1){
 			span.className = "err";

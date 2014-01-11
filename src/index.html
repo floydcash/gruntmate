@@ -10,15 +10,17 @@
 
 <div class="container">
 	
-	<header id="js_header">
-		<span class="logo"></span>
+	<div class="head-btn">
 		<a href="javascript:void(0)" id="js_header_close" title="关闭">&times;</a>
 		<a href="javascript:void(0)" id="js_header_min" title="最小化">－</a>
-	</header>
+	</div>
+	
+	<header id="js_header"><span class="logo"></span></header>
 	
 	<div class="left-bar">
 		<div class="bar-list">
 			<a href="javascript:void(0)" class="new-btn icon-plus" title="新建工程" onclick="ProjectManager.showAddForm()"></a>
+			<a href="javascript:void(0)" class="new-btn search-btn icon-search" title="搜索日志" onclick="SearchLog.toggle()"></a>
 		</div>
 		<div class="project-list"><ul id="js_left_bar_list"></ul></div>
 	</div>
@@ -116,6 +118,11 @@
 	</div>
 </div>
 
+<div class="searchInput" id="js_search_container">
+	<input type="text" placeholder="请输入你需要搜索的内容" id="js_search_input" style="" max-length="30" />
+	<input type="button" value="搜索" onclick="SearchLog.search()" />
+</div>
+
 <script type="text/javascript" src="js/htmlEncode.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
@@ -123,6 +130,7 @@
 <script type="text/javascript" src="js/datauri.js"></script>
 <script type="text/javascript" src="js/sprite.js"></script>
 <script type="text/javascript" src="js/project.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 </body>

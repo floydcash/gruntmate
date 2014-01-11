@@ -129,31 +129,13 @@ var Main = function(){
 			win.close();
 		}
 		
-		$("js_header").onmousedown = function(e){
+		//搜索快捷键
+		document.onkeydown = function(e){
 			
-			var startX = e.offsetX;
-			var startY = e.offsetY;
-			
-			$("js_header").onmousemove = function(e){
+			if(e.keyCode == 70 && e.ctrlKey){
 				
-				win.moveTo(e.offsetX - startX + win.x,e.offsetY - startY + win.y);
-				
-				//win.moveBy(e.offsetX - startX, e.offsetY - startY);
+				SearchLog.toggle();
 			}
-			
-			$("js_header").onmouseup = function(e){
-				
-				startX = e.offsetX;
-				startY = e.offsetY;
-				
-				$("js_header").onmousemove = null;
-				$("js_header").onmouseup = null;
-			}
-		}
-		document.onmouseout = document.onmouseup = function(){
-			
-			$("js_header").onmousemove = null;
-			$("js_header").onmouseup = null;
 		}
 
 	}

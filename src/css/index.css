@@ -359,11 +359,12 @@ a{text-decoration:none;}
 
 .container header{
 	height:39px;
-	width:548px;
+	width:484px;
 	float:right;
 	border-bottom:1px solid #bcc1c4;
 	cursor:default;
 	-webkit-user-select:none;
+	-webkit-app-region: drag;
 }
 .container header .logo{
 	float:left;
@@ -373,7 +374,13 @@ a{text-decoration:none;}
 	background:url(../img/logo.png) left center no-repeat;
 	margin-left:10px;
 }
-.container header a{
+.container .head-btn {
+	float:right;
+	height:39px;
+	border-bottom: 1px solid #bcc1c4;
+}
+
+.container .head-btn a{
 	display:inline-block;
 	float:right;
 	width:24px;
@@ -461,6 +468,9 @@ a{text-decoration:none;}
 }
 .bar-list .new-btn:hover{
 	opacity:0.7;
+}
+.bar-list .new-btn.search-btn{
+	font-size:24px;
 }
 
 
@@ -566,6 +576,9 @@ a{text-decoration:none;}
 	margin-bottom:5px;
 	margin-left:10px;
 }
+.container .right-ctn .log span:hover{
+	background-color:#deeffe;
+}
 .container .right-ctn .log span.err{
 	color:#db2e45;
 }
@@ -577,4 +590,24 @@ a{text-decoration:none;}
 }
 .container .right-ctn .log span.wait{
 	color:blue;
+}
+
+.searchInput{
+	position:absolute;
+	z-index:9;
+	left:0;
+	bottom:4px;
+	width:746px;
+	height:30px;
+	border:1px solid #aaa;
+	border-radius:4px;
+	box-shadow:1px 1px 8px black;
+	background-color:white;
+	display:none;
+}
+.searchInput input[type="text"]{
+	border:none;width:660px;height:28px;font-size:14px;text-indent:10px;border-radius:4px;
+}
+.searchInput input[type="button"]{
+	border: none;width: 80px;height: 26px;background-color: black;border-radius: 3px;color:#ccc;
 }

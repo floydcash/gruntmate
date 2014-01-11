@@ -90,8 +90,9 @@ var ProjectManager = function(){
 					'+(plus==1?"<span title='全局插件模式'>全</span>":"<span title='局部插件模式'>局</span>")+'\
 					<select onchange="ProjectManager.changeTasks(this,'+p_num+')">'+tasks_html+'</select>\
 					<button onclick="Main.start(this,'+p_num+')">启动</button>\
-					<button onclick="Main.clearLog('+p_num+')">清空</button>\
+					<button onclick="Main.clearLog('+p_num+')" title="清空日志">清空</button>\
 					<button onclick="ProjectManager.delProject('+p_num+')">删除</button>\
+					<button onclick="ProjectManager.openProject('+p_num+')" title="打开项目所在的目录">打开</button>\
 					<button onclick="ProjectManager.fixProject('+p_num+')" title="修复全局插件下引用局部插件的问题">修复</button>\
 				</div>\
 				<div class="log"></div>';
@@ -174,6 +175,15 @@ var ProjectManager = function(){
 		//添加补充代码
 		//;(function(){var old_require = require;require = function(str){if(typeof global != "undefined" && global.require){return global.require(str);}else return old_require(str);}}());
 	}
+	
+	function openProject(p_num){
+			
+		var project_path = $ProjectList[p_num].path;
+		
+		var gui = require('nw.gui');
+		
+		gui.Shell.openItem(project_path);
+	}
 
 	function changeTasks(selectDom,p_num){
 
@@ -187,6 +197,7 @@ var ProjectManager = function(){
 		addProject : addProject,
 		changeProject : changeProject,
 		delProject : delProject,
+		openProject : openProject,
 		fixProject : fixProject,
 		changeTasks : changeTasks,
 		init : init

@@ -4,6 +4,7 @@
   "window":{
 	"width":750,
 	"height":550,
+	"resizable":false,
 	"toolbar":false,
 	"frame":false
   }
