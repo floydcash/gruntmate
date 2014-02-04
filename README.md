@@ -3,6 +3,7 @@
 
 ##GruntMate是什么？
 基于node-webkit编写开发的，采用html+css实现界面，js+nodejs实现逻辑，可视化管理Grunt的前端项目
+###### [Automated English Translation](http://translate.google.com/translate?sl=auto&tl=en&js=n&prev=_t&hl=en&ie=UTF-8&u=https%3A%2F%2Fgithub.com%2Ffloydcash%2Fgruntmate) (May require Chrome)
 
 ###### [Automated English Translation](http://translate.google.com/translate?sl=auto&tl=en&js=n&prev=_t&hl=en&ie=UTF-8&u=https%3A%2F%2Fgithub.com%2Ffloydcash%2Fgruntmate) (May require Chrome)
 
